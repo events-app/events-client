@@ -10,7 +10,7 @@ export class MainService {
   constructor(private http: HttpClient) { }
 
   getContent(url){
-    return this.http.get<Main>(url);
+    return this.http.get(url);
   }
 
 }

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MainService } from './main.service';
 import { Main } from './main';
 import { error } from '@angular/compiler/src/util';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-main',
@@ -9,17 +10,18 @@ import { error } from '@angular/compiler/src/util';
   styleUrls: ['./main.component.scss'],
   providers: [MainService]
 })
-export class MainComponent implements OnInit {
-
-  constructor(private service : MainService) { }
+export class MainComponent implements OnInit, OnDestroy {
 
   main : Main;
   error: any;
+  subscription : Subscription;
 
-  url = 'https://mirek-mockapi.herokuapp.com/api/v1/content/main/';
+  constructor(private service : MainService)  { }
+
+  url = 'http://localhost:8000/api/v1/content/main/';
 
   showContent(){
-    this.service.getContent(this.url).subscribe(data => this.main = {
+    this.subscription = this.service.getContent(this.url).subscribe(data => this.main = {
       name: data['name'],
       text: data['text']
     },
@@ -29,6 +31,10 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.showContent();
+  }
+
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 
 }

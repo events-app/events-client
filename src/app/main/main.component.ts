@@ -13,12 +13,12 @@ import { Subscription } from 'rxjs';
 export class MainComponent implements OnInit, OnDestroy {
 
   main : Main;
-  error: any;
+  error : any;
   subscription : Subscription;
 
   constructor(private service : MainService)  { }
 
-  url = 'http://localhost:8000/api/v1/content/main/';
+  url = 'https://mirek-mockapi.herokuapp.com/api/v1/content/main/';
 
   showContent(){
     this.subscription = this.service.getContent(this.url).subscribe(data => this.main = {

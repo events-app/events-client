@@ -8,7 +8,7 @@ export class MainService {
 
   constructor(private http: HttpClient) { }
 
-  getContent(url){
+  getContent(url) {
     return this.http.get(url);
   }
 

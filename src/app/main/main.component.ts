@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MainService } from './main.service';
 import { Main } from './main';
-import { error } from '@angular/compiler/src/util';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -12,20 +11,20 @@ import { Subscription } from 'rxjs';
 })
 export class MainComponent implements OnInit, OnDestroy {
 
-  main : Main;
-  error : any;
-  subscription : Subscription;
+  main: Main;
+  error: any;
+  subscription: Subscription;
 
-  constructor(private service : MainService)  { }
+  constructor(private service: MainService) { }
 
   url = 'https://mirek-mockapi.herokuapp.com/api/v1/content/main/';
 
-  showContent(){
+  showContent() {
     this.subscription = this.service.getContent(this.url).subscribe(data => this.main = {
       name: data['name'],
       text: data['text']
     },
-    error => this.error = error
+    err => this.error = err
     );
   }
 
@@ -33,7 +32,7 @@ export class MainComponent implements OnInit, OnDestroy {
     this.showContent();
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 

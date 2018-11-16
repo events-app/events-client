@@ -17,7 +17,7 @@ export class MainComponent implements OnInit, OnDestroy {
 
   constructor(private service: MainService) { }
 
-  url = 'https://mirek-mockapi.herokuapp.com/api/v1/content/main/';
+  url = 'https://mirek-mockapi.herokuapp.com/api/v1/content/main';
 
   showContent() {
     this.subscription = this.service.getContent(this.url).subscribe(data => this.main = {

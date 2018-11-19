@@ -1,0 +1,13 @@
+<div mat-dialog-content>
+  <p>Please provide your username and password.</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.username">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.password">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data.username" cdkFocusInitial>Log in</button>
+</div>

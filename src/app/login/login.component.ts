@@ -21,7 +21,8 @@ export class LoginComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.username = result;
+      this.username = result.username;
+      this.password = result.password;
     });
 
   }

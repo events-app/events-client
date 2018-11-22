@@ -28,7 +28,7 @@ export class LoginComponent implements OnDestroy {
     this.subscription = dialogRef.afterClosed().subscribe(result => {
       this.username = result.username;
       this.password = result.password;
-      this.sendCredentials('http://localhost:8000/api/v1/content/login');
+      this.sendCredentials('http://localhost:8000/api/v1/login');
     });
 
   }
@@ -38,7 +38,9 @@ export class LoginComponent implements OnDestroy {
   }
 
   sendCredentials(url): void {
-    this.http.post(url, {'username': this.username, 'password': this.password});
+    this.http.post(url, {'username': this.username, 'password': this.password}).subscribe( result => {},
+      error => console.log(error)
+      );
   }
 
 }

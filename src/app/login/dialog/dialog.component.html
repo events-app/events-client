@@ -7,7 +7,7 @@
     <input class="mat-form-field" matInput placeholder="Password" minlength="5" maxlength="20" [(ngModel)]="data.password" type="password" #password="ngModel">
   </mat-form-field>
 </div>
-<div *ngIf="password.errors?.minlength">
+<div class="validation" *ngIf="password.errors?.minlength">
   Login should be at least 5 characters long.
 </div>
 <div mat-dialog-actions>

@@ -1,13 +1,16 @@
 <div mat-dialog-content>
   <p>Please provide your username and password.</p>
   <mat-form-field>
-    <input matInput placeholder="Username" [(ngModel)]="data.username">
+    <input matInput placeholder="Username" pattern="^[a-zA-Z0-9]{4,16}$" [(ngModel)]="data.username">
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Password" [(ngModel)]="data.password" type="password">
+    <input class="mat-form-field" matInput placeholder="Password" minlength="5" maxlength="20" [(ngModel)]="data.password" type="password" #password="ngModel">
   </mat-form-field>
+</div>
+<div *ngIf="password.errors?.minlength">
+  Login should be at least 5 characters long.
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Log in</button>
+  <button [disabled]="!password.dirty || password.errors?.minlength ? true : false" mat-button [mat-dialog-close]="data" cdkFocusInitial>Log in</button>
 </div>

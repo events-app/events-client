@@ -65,7 +65,7 @@ import { FormsModule } from '@angular/forms';
     MainComponent,
     HomeComponent,
     LoginComponent,
-    DialogComponent
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,9 +76,6 @@ import { FormsModule } from '@angular/forms';
     TooltipModule.forRoot(),
     BrowserAnimationsModule,
     NoopAnimationsModule,
-    // MatButtonModule,
-    // MatCheckboxModule,
-    // MatDialogModule
     CdkTableModule,
     CdkTreeModule,
     DragDropModule,

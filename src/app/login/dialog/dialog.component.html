@@ -1,16 +1,22 @@
 <div mat-dialog-content>
   <p>Please provide your username and password.</p>
   <mat-form-field>
-    <input matInput placeholder="Username" pattern="^[a-zA-Z0-9]{4,16}$" [(ngModel)]="data.username">
+    <input matInput placeholder="Username" pattern="^[a-zA-Z0-9]*$" minlength="4" maxlength="16" [(ngModel)]="data.username" #login="ngModel">
   </mat-form-field>
+<div class="validation" [hidden]="!login.errors?.pattern">
+  Login can only contain letters and numbers.
+</div>
+<div class="validation" [hidden]="!login.errors?.minlength">
+  Login should be at least 4 characters long.
+</div>
   <mat-form-field>
     <input class="mat-form-field" matInput placeholder="Password" minlength="5" maxlength="20" [(ngModel)]="data.password" type="password" #password="ngModel">
   </mat-form-field>
 </div>
-<div *ngIf="password.errors?.minlength">
-  Login should be at least 5 characters long.
+<div class="validation" *ngIf="password.errors?.minlength">
+  Password should be at least 5 characters long.
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancel</button>
-  <button [disabled]="!password.dirty || password.errors?.minlength ? true : false" mat-button [mat-dialog-close]="data" cdkFocusInitial>Log in</button>
+  <button [disabled]="!login.dirty || !password.dirty || !password.valid || !login.valid" mat-button [mat-dialog-close]="data" cdkFocusInitial>Log in</button>
 </div>

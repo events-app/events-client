@@ -26,11 +26,12 @@ export class LoginComponent implements OnDestroy {
     });
 
     this.subscription = dialogRef.afterClosed().subscribe(result => {
-      this.username = result.username;
-      this.password = result.password;
-      this.service.sendCredentials('http://localhost:8000/api/v1/login', this.username, this.password);
+      if (result !== null && result !== undefined ) {
+        this.username = result.username;
+        this.password = result.password;
+        this.service.sendCredentials('http://localhost:8000/api/v1/login', this.username, this.password);
+      }
     });
-
   }
 
   ngOnDestroy() {

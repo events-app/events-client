@@ -1,0 +1,16 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.nav-span {
+  margin-left: 50px;
+
+  &:hover {
+    color: gray;
+  }
+
+  &:first-child {
+    margin-left: 20px;
+  }
+
+}

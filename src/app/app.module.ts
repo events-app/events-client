@@ -14,6 +14,7 @@ import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { DialogComponent } from './login/dialog/dialog.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {ScrollingModule} from '@angular/cdk/scrolling';
@@ -66,6 +67,7 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     LoginComponent,
     DialogComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,6 @@ import { MarkdownModule } from 'ngx-markdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-// import {MatButtonModule, MatCheckboxModule, MatDialogModule} from '@angular/material';
 // Components
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';

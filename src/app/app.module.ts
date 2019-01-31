@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { DialogComponent } from './login/dialog/dialog.component';
 import { NavbarComponent } from './navbar/navbar.component';
+// import { AdminComponent } from './admin/admin.component';
 
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {ScrollingModule} from '@angular/cdk/scrolling';
@@ -59,6 +60,7 @@ import {
   MatTreeModule,
 } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -70,6 +72,7 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
   ],
   imports: [
+    AdminModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

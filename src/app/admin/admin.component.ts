@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatMenuTrigger } from '@angular/material';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
+  @ViewChild(MatMenuTrigger) adminMenu: MatMenuTrigger;
+
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  public openAdminMenu(): void {
+    this.adminMenu.openMenu();
   }
 
 }

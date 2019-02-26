@@ -1,5 +1,5 @@
 export interface Cards {
-  id: any;
+  id: Number;
   name: String;
   text: String;
 }

@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { DialogComponent } from './login/dialog/dialog.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { CardsComponent } from './cards/cards.component';
 // import { AdminComponent } from './admin/admin.component';
 
 import {DragDropModule} from '@angular/cdk/drag-drop';
@@ -69,6 +70,7 @@ import { AdminModule } from './admin/admin.module';
     LoginComponent,
     DialogComponent,
     NavbarComponent,
+    CardsComponent,
   ],
   imports: [
     AdminModule,

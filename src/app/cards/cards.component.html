@@ -1,6 +1,12 @@
 <div *ngIf="cards !== undefined">
-  <markdown ngPreserveWhitespaces>
-  <p>{{cards.name}}</p>
-  {{cards.text}}
-  </markdown>
+  <mat-card>
+    <mat-card-title>
+      {{cards.name}}
+    </mat-card-title>
+    <mat-card-content>
+      <markdown ngPreserveWhitespaces>
+      {{cards.text}}
+      </markdown>
+    </mat-card-content>
+  </mat-card>
 </div>

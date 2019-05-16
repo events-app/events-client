@@ -13,7 +13,7 @@ export class MainComponent implements OnInit, OnDestroy {
 
   main: Main;
   error: any;
-  subscription: Subscription;
+  private subscription: Subscription;
 
   constructor(private service: MainService) { }
 

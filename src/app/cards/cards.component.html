@@ -1,0 +1,12 @@
+<div *ngIf="cards !== undefined">
+  <mat-card class="single-card">
+    <mat-card-title>
+      {{cards.name}}
+    </mat-card-title>
+    <mat-card-content>
+      <markdown ngPreserveWhitespaces>
+      {{cards.text}}
+      </markdown>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   private subscription: Subscription;
   private error: any;
-  private cards: Record<number, string> = {};
+  public cards: Record<number, string> = {};
 
   @ViewChild(MatMenuTrigger) cardsMenu: MatMenuTrigger;
 
@@ -32,11 +32,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
     );
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.mapCards();
+  }
 
   public openCardsMenu(): void {
-    this.mapCards();
-    console.log(this.cards[1]);
     this.cardsMenu.openMenu();
   }
 

@@ -1,5 +1,5 @@
 <button mat-button [matMenuTriggerFor]="adminMenu" (click)="openAdminMenu()">Menu</button>
 <mat-menu #adminMenu="matMenu">
-  <button mat-menu-item>Manage cards</button>
-  <button mat-menu-item>Something Else</button>
+  <a href="/admin/cards" mat-menu-item>Manage cards</a>
+  <a href="/admin/cards" mat-menu-item>Something Else</a>
 </mat-menu>

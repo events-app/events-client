@@ -24,7 +24,7 @@
            type="password"
            #password="ngModel">
   </mat-form-field>
-  <div class="validation" *ngIf="password.errors?.minlength">
+  <div class="validation" *ngIf="!!password.errors?.minlength">
     Password should be at least 5 characters long.
   </div>
 </div>

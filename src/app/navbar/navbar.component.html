@@ -4,10 +4,10 @@
   <span class="nav-span"><a href="/contact">Contact</a></span>
   <span class="nav-span" mat-button [matMenuTriggerFor]="cardsMenu" (click)="openCardsMenu()">Cards</span>
   <mat-menu #cardsMenu="matMenu">
-    <button mat-menu-item *ngFor="let item of cards | keyvalue"><a href="/cards/{{item.key}}">{{item.value}}</a></button>
+    <button mat-menu-item *ngFor="let item of cards | async"><a href="/cards/{{item.id}}">{{item.name}}</a></button>
   </mat-menu>
   <span class="spacer" flex></span>
   <span class="admin-menu"><app-admin></app-admin></span>
   <span><app-login></app-login></span>
 </mat-toolbar>
-`
+

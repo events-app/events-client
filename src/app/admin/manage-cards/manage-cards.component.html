@@ -1,3 +1,9 @@
-<p>
-  manage-cards works!
-</p>
+<form class="cards-add-form">
+
+  <mat-form-field class="cards-add">
+    <input name="cardInput" matInput #message maxlength="256" placeholder="Message" [(ngModel)]="cardName">
+    <mat-hint align="start"><strong>Enter a name for new card</strong> </mat-hint>
+  </mat-form-field>
+  <button mat-button (click)="registerCard()">Add card</button>
+
+</form>

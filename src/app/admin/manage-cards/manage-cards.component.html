@@ -1,9 +1,11 @@
 <form class="cards-add-form">
-
   <mat-form-field class="cards-add">
-    <input name="cardInput" matInput #message maxlength="256" placeholder="Message" [(ngModel)]="cardName">
+    <input name="cardInput" matInput #message maxlength="256" placeholder="New card" [(ngModel)]="cardName">
+    <mat-hint align="start"><strong>Enter a name for new card</strong> </mat-hint>
+  </mat-form-field>
+  <mat-form-field class="cards-add">
+    <input name="cardInput" matInput #message maxlength="256" placeholder="New text" [(ngModel)]="cardText">
     <mat-hint align="start"><strong>Enter a name for new card</strong> </mat-hint>
   </mat-form-field>
   <button mat-button (click)="registerCard()">Add card</button>
-
 </form>

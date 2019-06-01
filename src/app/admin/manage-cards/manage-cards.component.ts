@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-manage-cards',
@@ -9,13 +9,21 @@ import { HttpClient } from '@angular/common/http';
 export class ManageCardsComponent implements OnInit {
 
   public cardName: string;
+  public cardText: string;
   private payload: any;
+  private readonly httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+
+   }
 
   public registerCard(): any {
-    this.payload = {name: this.cardName, text: 'blabla'};
-    return this.http.post('http://localhost:8000/api/v1/cards', this.payload);
+    this.payload = {name: this.cardName, text: this.cardText};
+    return this.http.post<any>('http://localhost:8000/api/v1/cards', this.payload, this.httpOptions).subscribe();
   }
 
   ngOnInit() {

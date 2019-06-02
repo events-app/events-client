@@ -6,6 +6,8 @@ import { ManageCardsComponent } from './manage-cards/manage-cards.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { LMarkdownEditorModule } from 'ngx-markdown-editor';
 
 @NgModule({
   declarations: [AdminComponent, ManageCardsComponent],
@@ -14,7 +16,9 @@ import { FormsModule } from '@angular/forms';
             MatFormFieldModule,
             BrowserAnimationsModule,
             MatInputModule,
-            FormsModule],
+            FormsModule,
+            BrowserModule,
+            LMarkdownEditorModule],
   exports: [AdminComponent]
 })
 export class AdminModule { }

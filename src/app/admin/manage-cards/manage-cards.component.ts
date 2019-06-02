@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
@@ -8,8 +8,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ManageCardsComponent implements OnInit {
 
-  public cardName: string;
-  public cardText: string;
+  @Input() cardName: string;
+  @Input() cardText: string;
+
   private payload: any;
   private readonly httpOptions = {
     headers: new HttpHeaders({

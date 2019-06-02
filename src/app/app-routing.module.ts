@@ -4,6 +4,7 @@ import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { CardsComponent } from './cards/cards.component';
+import { ManageCardsComponent } from './admin/manage-cards/manage-cards.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent
+  },
+  {
+    path: 'admin/cards',
+    component: ManageCardsComponent
   },
   {
     path: 'cards/:id',

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material';
 import { HttpClient } from '@angular/common/http';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -11,32 +11,21 @@ import { Subscription } from 'rxjs';
 export class NavbarComponent implements OnInit, OnDestroy {
 
   private subscription: Subscription;
-  private error: any;
-  public cards: Record<number, string> = {};
+  public cards: Observable<any[]>;
 
   @ViewChild(MatMenuTrigger) cardsMenu: MatMenuTrigger;
 
   constructor(private http: HttpClient) {}
 
-  private getCards(){
-    return this.http.get("http://localhost:8000/api/v1/cards");
-  }
-
-  private mapCards(): void {
-    this.subscription = this.getCards().subscribe((data: any[]) => {
-      for (let i = 0; i < data.length; i++) {
-        this.cards[data[i].id] = data[i].name;
-      }
-    },
-    error => this.error = error
-    );
+  private getCards(): Observable<any[]>{
+    return this.http.get<any[]>("http://localhost:8000/api/v1/cards");
   }
 
   ngOnInit() {
-    this.mapCards();
   }
 
   public openCardsMenu(): void {
+    this.cards = this.getCards();
     this.cardsMenu.openMenu();
   }
 

@@ -1,0 +1,21 @@
+<div class="container-fluid cards-container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col">
+      <form class="cards-add-form">
+        <mat-form-field appearance="outline">
+          <mat-label>Card's name</mat-label>
+          <input name="cardNameInput" matInput placeholder="Placeholder" [(ngModel)]="cardName">
+        </mat-form-field>
+        <md-editor name="MarkdownContent"
+          [(ngModel)]="cardText"
+          [height]="'300px'"
+          required
+          maxlength="500">
+        </md-editor>
+        <button mat-raised-button color="primary" (click)="registerCard()" class="cards-add-button">Add card</button>
+      </form>
+    </div>
+  </div>
+</div>

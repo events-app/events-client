@@ -8,6 +8,7 @@ import {MatInputModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { LMarkdownEditorModule } from 'ngx-markdown-editor';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [AdminComponent, ManageCardsComponent],
@@ -18,7 +19,8 @@ import { LMarkdownEditorModule } from 'ngx-markdown-editor';
             MatInputModule,
             FormsModule,
             BrowserModule,
-            LMarkdownEditorModule],
+            LMarkdownEditorModule,
+            MatTableModule],
   exports: [AdminComponent]
 })
 export class AdminModule { }

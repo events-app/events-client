@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
+import {MatTable} from '@angular/material';
 
 @Component({
   selector: 'app-manage-cards',
@@ -12,10 +13,12 @@ export class ManageCardsComponent implements OnInit, OnDestroy {
   @Input() cardName: string;
   @Input() cardText: string;
 
+  @ViewChild(MatTable) table: MatTable<any>;
+
   private payload: any;
-  public cards: PreparedCards;
+  public cards: PreparedCards[];
   private subscription: Subscription;
-  public displayedColumns = ['id', 'name', 'text', 'dateCreated', 'dateUpdated']
+  public displayedColumns = ['name', 'dateCreated', 'dateUpdated']
   private readonly httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -28,13 +31,13 @@ export class ManageCardsComponent implements OnInit, OnDestroy {
 
   public registerCard(): any {
     this.payload = {name: this.cardName, text: this.cardText};
-    return this.http.post<any>('http://localhost:8000/api/v1/cards', this.payload, this.httpOptions).subscribe();
+    this.http.post<any>('http://localhost:8000/api/v1/cards', this.payload, this.httpOptions).subscribe();
   }
 
   private getCards() {
-    this.subscription = this.http.get<PreparedCards>("http://localhost:8000/api/v1/cards").subscribe(content => {
-       this.cards = <PreparedCards>content;
-  });
+    this.subscription = this.http.get('http://localhost:8000/api/v1/cards').subscribe((data: PreparedCards[]) => {
+      this.cards = data;
+    });
   }
 
   ngOnInit() {

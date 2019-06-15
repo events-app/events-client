@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
   public cards: Observable<any[]>;
 
-  @ViewChild(MatMenuTrigger) cardsMenu: MatMenuTrigger;
+  @ViewChild(MatMenuTrigger, {static: false}) cardsMenu: MatMenuTrigger;
 
   constructor(private http: HttpClient) {}
 

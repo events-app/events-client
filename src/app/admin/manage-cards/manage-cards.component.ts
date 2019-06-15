@@ -13,7 +13,7 @@ export class ManageCardsComponent implements OnInit, OnDestroy {
   @Input() cardName: string;
   @Input() cardText: string;
 
-  @ViewChild(MatTable) table: MatTable<any>;
+  @ViewChild(MatTable, {static: false}) table: MatTable<any>;
 
   private payload: any;
   public cards: PreparedCards[];

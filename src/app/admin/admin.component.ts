@@ -8,7 +8,7 @@ import { MatMenuTrigger } from '@angular/material';
 })
 export class AdminComponent implements OnInit {
 
-  @ViewChild(MatMenuTrigger) adminMenu: MatMenuTrigger;
+  @ViewChild(MatMenuTrigger, {static: false}) adminMenu: MatMenuTrigger;
 
   constructor() { }
 

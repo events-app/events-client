@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { AdminComponent } from './admin.component';
-import { MatMenuModule, MatButtonModule } from '@angular/material';
+import { MatMenuModule, MatButtonModule, MatIconModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ManageCardsComponent } from './manage-cards/manage-cards.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -20,7 +20,8 @@ import {MatTableModule} from '@angular/material/table';
             FormsModule,
             BrowserModule,
             LMarkdownEditorModule,
-            MatTableModule],
+            MatTableModule,
+            MatIconModule],
   exports: [AdminComponent]
 })
 export class AdminModule { }

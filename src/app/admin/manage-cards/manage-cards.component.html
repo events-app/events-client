@@ -19,6 +19,11 @@
                 <td mat-cell *matCellDef="let element"> {{element.dateUpdated}} </td>
               </ng-container>
 
+              <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> Actions </th>
+                <td mat-cell *matCellDef="let element" (click)="deleteCards(element.id)"><i class="material-icons cards-remove-icon"> cancel </i></td>
+              </ng-container>
+
               <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
               <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>

@@ -28,10 +28,19 @@ export class ManageCardsComponent implements OnInit, OnDestroy {
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private detector: ChangeDetectorRef) {}
 
+  ngOnInit() {
+    this.getCards();
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
   private registerCard(): any {
     this.payload = {name: this.cardName, text: this.cardText};
     this.http.post<any>('http://localhost:8000/api/v1/cards', this.payload, this.httpOptions).subscribe(() => {
       this.refreshCards();
+      this.cleanMarkdownEditor();
     });
   }
 
@@ -52,12 +61,9 @@ export class ManageCardsComponent implements OnInit, OnDestroy {
     this.detector.detectChanges();
   }
 
-  ngOnInit() {
-    this.getCards();
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
+  private cleanMarkdownEditor(){
+    this.cardName = '';
+    this.cardText = '';
   }
 
 }

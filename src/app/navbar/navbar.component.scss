@@ -2,12 +2,13 @@
   flex: 1 1 auto;
 }
 
-.nav-span {
+.nav-div {
   margin-left: 50px;
   cursor: pointer;
 
   &:hover {
     color: gray;
+    // border-bottom: 4px solid black;
   }
 
   &:first-child {
@@ -23,4 +24,8 @@ a {
 
  .admin-menu {
   padding-right: 30px;
+ }
+
+ .navigation {
+   height: 47px;
  }

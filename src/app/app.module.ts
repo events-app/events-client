@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MarkdownModule } from 'ngx-markdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import {MatTabsModule} from '@angular/material/tabs';
 
 // Components
 import { AppComponent } from './app.component';
@@ -50,6 +51,7 @@ import { AdminModule } from './admin/admin.module';
     MatInputModule,
     MatMenuModule,
     MatToolbarModule,
+    MatTabsModule,
   ],
   entryComponents: [DialogComponent],
   providers: [],

@@ -3,16 +3,13 @@
 }
 
 .nav-div {
-  margin-left: 50px;
+
   cursor: pointer;
+  font-size: 15px;
+  font-family: inherit;
 
   &:hover {
-    color: gray;
-    // border-bottom: 4px solid black;
-  }
-
-  &:first-child {
-    margin-left: 20px;
+    color: lightgray;
   }
 
 }

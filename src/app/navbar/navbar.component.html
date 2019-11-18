@@ -1,7 +1,7 @@
-<mat-toolbar class="navigation" color="basic">
+<mat-toolbar class="navigation" color="primary">
 
-  <nav mat-tab-nav-bar>
-    <a mat-tab-link *ngFor="let link of links"
+  <nav mat-tab-nav-bar color="warn">
+    <a class="nav-div" mat-tab-link *ngFor="let link of links"
         (click)="activeLink = link.name"
         [active]="activeLink == link.name"
         [routerLink]="link.route"> {{link.name}} </a>

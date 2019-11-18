@@ -25,9 +25,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.links.push({name: 'HOME', route: '/'});
-    this.links.push({name: 'EVENTS', route: '/main'});
-    this.links.push({name: 'CONTACT', route: '/main'});
+    this.links.push({name: 'Home', route: '/'});
+    this.links.push({name: 'Events', route: '/main'});
+    this.links.push({name: 'Contact', route: '/main'});
   }
 
   public openCardsMenu(): void {

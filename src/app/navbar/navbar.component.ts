@@ -26,7 +26,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.links.push({name: 'Home', route: '/'});
-    this.links.push({name: 'Events', route: '/main'});
+    this.links.push({name: 'About', route: '/main'});
+    this.links.push({name: 'How to', route: '/'});
     this.links.push({name: 'Contact', route: '/main'});
   }
 

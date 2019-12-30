@@ -6,7 +6,7 @@
 
   cursor: pointer;
   font-size: 15px;
-  font-family: inherit;
+  color: white;
 
   &:hover {
     color: lightgray;
@@ -14,15 +14,19 @@
 
 }
 
+.nav-cards {
+    padding-left:60px
+}
+
 a {
-  color: inherit;
+  opacity: 1;
   text-decoration: none;
 }
 
- .admin-menu {
+.admin-menu {
   padding-right: 30px;
- }
+}
 
- .navigation {
+.navigation {
    height: 47px;
- }
+}

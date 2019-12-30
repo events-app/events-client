@@ -1,14 +1,11 @@
 <mat-toolbar class="navigation" color="primary">
-
-  <nav mat-tab-nav-bar color="warn">
-    <a class="nav-div" mat-tab-link *ngFor="let link of links"
-        (click)="activeLink = link.name"
-        [active]="activeLink == link.name"
-        [routerLink]="link.route"> {{link.name}} </a>
-  </nav>
-
-  <div class="nav-div" mat-button [matMenuTriggerFor]="cardsMenu" (click)="openCardsMenu()">Cards</div>
-
+    <nav mat-tab-nav-bar color="warn">
+      <a class="nav-div" mat-tab-link *ngFor="let link of links"
+          (click)="activeLink = link.name"
+          [active]="activeLink == link.name"
+          [routerLink]="link.route"> {{link.name}} </a>
+    </nav>
+  <div class="nav-div nav-cards" mat-button [matMenuTriggerFor]="cardsMenu" (click)="openCardsMenu()">Events</div>
   <mat-menu #cardsMenu="matMenu">
     <a href="/cards/{{item.id}}" mat-menu-item *ngFor="let item of cards | async">{{item.name}}</a>
   </mat-menu>

@@ -2,25 +2,31 @@
   flex: 1 1 auto;
 }
 
-.nav-span {
-  margin-left: 50px;
+.nav-div {
+
   cursor: pointer;
+  font-size: 15px;
+  color: white;
 
   &:hover {
-    color: gray;
+    color: lightgray;
   }
 
-  &:first-child {
-    margin-left: 20px;
-  }
+}
 
+.nav-cards {
+    padding-left:60px
 }
 
 a {
-  color: inherit;
+  opacity: 1;
   text-decoration: none;
 }
 
- .admin-menu {
+.admin-menu {
   padding-right: 30px;
- }
+}
+
+.navigation {
+   height: 47px;
+}

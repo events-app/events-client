@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { MatTable } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
+import { CustomHttpClient } from 'src/app/services/customHttpClient.service';
 
 @Component({
   selector: 'app-manage-cards',
@@ -20,13 +21,8 @@ export class ManageCardsComponent implements OnInit, OnDestroy {
   public cards: PreparedCards[];
   private subscription: Subscription;
   public displayedColumns = ['name', 'dateCreated', 'dateUpdated', "actions"]
-  private readonly httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  };
 
-  constructor(private http: HttpClient, private route: ActivatedRoute, private detector: ChangeDetectorRef) {}
+  constructor(private http: HttpClient, private route: ActivatedRoute, private detector: ChangeDetectorRef, private httpCustom: CustomHttpClient) {}
 
   ngOnInit() {
     this.getCards();
@@ -36,27 +32,27 @@ export class ManageCardsComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  private registerCard(): any {
+  public registerCard(): any {
     this.payload = {name: this.cardName, text: this.cardText};
-    this.http.post<any>('http://localhost:8000/api/v1/cards', this.payload, this.httpOptions).subscribe(() => {
+    this.httpCustom.post('http://localhost:8000/api/v1/cards', this.payload).subscribe(() => {
       this.refreshCards();
       this.cleanMarkdownEditor();
     });
   }
 
-  private getCards() {
+  public getCards() {
     this.subscription = this.http.get('http://localhost:8000/api/v1/cards').subscribe((data: PreparedCards[]) => {
       this.cards = data;
     });
   }
 
-  private deleteCards(id: number) {
+  public deleteCards(id: number) {
     this.subscription = this.http.delete('http://localhost:8000/api/v1/cards/' + id).subscribe(() => {
       this.refreshCards();
     });
   }
 
-  private refreshCards(){
+  public refreshCards(){
     this.getCards();
     this.detector.detectChanges();
   }

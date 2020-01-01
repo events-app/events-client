@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JwtToken } from './jwttoken';
 import { stringify } from 'querystring';
+import { TokenTimer } from '../services/tokenTimer.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,13 +11,15 @@ export class LoginService {
 
   private jwtToken: JwtToken;
 
-  constructor(private http: HttpClient) { }
-  
+  constructor(private http: HttpClient, private timer: TokenTimer) { }
+
   sendCredentials(url, username, password): void {
     this.http.post(url, {'username': username, 'password': password}).subscribe(result =>
-      { 
+      {
         this.setToken(result);
-        localStorage.setItem('token', stringify(this.getToken()).replace('token=',''));
+        localStorage.setItem('token', stringify(this.getToken()).replace('token=', ''));
+        this.timer.startCount(5);
+        console.log('done');
       },
         error => console.log(error)
       );
